@@ -1,0 +1,31 @@
+.array {
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.treearray{
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.column {
+    display: flex;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.cell {
+    border: 1px solid darkred;
+    padding: 10px;
+    width: 60px;
+    height: 50px;
+    margin: 5px;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+}
