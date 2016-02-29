@@ -10,10 +10,23 @@
     margin-top: 25px;
 }
 
+.none {
+    border: 1px solid black;
+}
+
+.right {
+    border: 1px solid red;
+}
+
+.left {
+    border: 1px solid blue;
+}
+
+
+
 .block {
     display: flex;
     flex-direction: row;
-    border: 1px solid blue;
     padding: 10px;
 }
 
