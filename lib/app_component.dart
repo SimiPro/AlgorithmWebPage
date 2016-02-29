@@ -30,10 +30,36 @@ class AppComponent {
     int size = int.parse(values);
     Random rnd = new Random();
 
-    for(int i = 0; i< size; i++) {
-      rows[i + 1] = createRow();
+    for(int i = 0; i < size; i++) {
       cells.add( pow(-1, i) * rnd.nextInt(100));
     }
+
+    var rest =  1;
+    var ticker = true;
+    while (ticker) {
+      rest = log(size)/log(2);
+      print(rest);
+      ticker = false;
+      var splits = rest.toString().split('.');
+      if (splits.length > 1) {
+        String chunk = splits.elementAt(1);
+        for (int i = 0 ; i < chunk.length; i++) {
+          //print(chunk[i]);
+          if (chunk[i] != "0") {
+            rest = 1;
+            size = size + 1;
+            cells.add(0);
+            ticker = true;
+            break;
+          }
+        }
+      }
+    }
+
+    for (int i = 0; i< size; i++) {
+      rows[i + 1] = createRow();
+    }
+
 
 
     DivElement row = new DivElement();
@@ -110,19 +136,18 @@ class AppComponent {
     //[ ] [ ] [ ] | [ ] [ ] [ ] | [ ] [ ] [ ] [ ]
 
     if (size == 1) {
-      DivElement block = createSingleBlock();
+      DivElement block = createSingleBlock(); // dsp
       addCell(block, input.elementAt(leftIndex)); // dsp
-      getCurrentRow(1).children.add(block);
+      getCurrentRow(1).children.add(block); // dsp
       return input.elementAt(leftIndex);
     }
     int middle = size ~/ 2;
 
 
-    DivElement currentRow = getCurrentRow(size);
-
-    DivElement container = createSingleBlock();
-    DivElement leftBlock = createLeftBlock();
-    DivElement rightBlock = createRightBlock();
+    DivElement currentRow = getCurrentRow(size); // dsp
+    DivElement container = createSingleBlock();// dsp
+    DivElement leftBlock = createLeftBlock();// dsp
+    DivElement rightBlock = createRightBlock();// dsp
 
 
     int maxLeftSum = divideAndConquer(input, leftIndex, middle);
