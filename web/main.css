@@ -1,3 +1,23 @@
+.tree {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 25px;
+}
+
+.block {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid blue;
+    padding: 10px;
+}
+
+
 .array {
     margin: 15px;
     display: flex;
