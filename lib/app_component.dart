@@ -9,6 +9,8 @@ import 'dart:html';
 @Component(selector: 'my-app', templateUrl: 'app_component.html')
 class AppComponent {
 
+  String result = "";
+
   List<int> cells = new List();
   List<List<int>> levels = new List();
 
@@ -20,6 +22,7 @@ class AppComponent {
 
   onGetArray() {
     tree = DOM.query("#tree");
+    tree.children.clear();
     DOM.clearNodes(tree);
     cells.clear();
 
@@ -42,8 +45,8 @@ class AppComponent {
 
     row.children.add(block);
 
+    result = divideAndConquer(cells, 0, size).toString();
 
-    print("Result: ");print(divideAndConquer(cells, 0, size).toString());
 
 
     rows.values.toList().reversed.forEach((D) {
@@ -140,7 +143,6 @@ class AppComponent {
       sum += input.elementAt(i + leftIndex);
       maxLeftBorderSum = max(sum, maxLeftBorderSum);
     }
-
 
     container.children.add(leftBlock);
     container.children.add(rightBlock);
