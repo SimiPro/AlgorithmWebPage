@@ -1,1 +1,14 @@
-<div>AlgorithmWebPage</div>
+<h1>Simis Algorithm Page</h1>
+<br>
+<h2>Max Partial Sum</h2>
+
+<input #box type="number" (keyup.enter)="values=box.value" (blur)="values=box.value">
+<button (click)="onGetArray()">Generate Array</button>
+<div class="container">
+    <div class="array">
+        <div class="cell" *ngFor="#c of cells" [value]="c">{{c}}</div>
+    </div>
+    <h1>Result: {{result}}</h1>
+    <div id="tree">
+    </div>
+</div>
